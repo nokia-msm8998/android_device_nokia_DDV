@@ -19,5 +19,9 @@ DEVICE_PACKAGE_OVERLAYS += \
 PRODUCT_SOONG_NAMESPACES += \
     $(DEVICE_PATH)
 
+# Wi-Fi
+PRODUCT_PACKAGES += \
+    WifiOverlayDDV
+
 # Inherit device specific vendor makefiles
 $(call inherit-product, vendor/nokia/DDV/DDV-vendor.mk)
