@@ -9,3 +9,6 @@ include device/nokia/msm8998-common/BoardConfigCommon.mk
 
 # Kernel
 TARGET_KERNEL_CONFIG := lineageos_DDV_defconfig
+
+# Props
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
