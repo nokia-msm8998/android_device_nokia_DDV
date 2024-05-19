@@ -14,7 +14,7 @@ PRODUCT_SHIPPING_API_LEVEL := 28
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-# Inherit from NLA device
+# Inherit from DDV device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
 PRODUCT_NAME := lineage_DDV
@@ -26,7 +26,7 @@ PRODUCT_MODEL := Nokia 7.2
 PRODUCT_GMS_CLIENTID_BASE := android-hmd-rev2
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME= Daredevil_00WW \
+    PRODUCT_NAME=Daredevil_00WW \
     PRIVATE_BUILD_DESC="m690-user 11 RKQ1.210607.001 00WW_3_690_SP07 release-keys"
 
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
