@@ -10,6 +10,9 @@ TARGET_OTA_ASSERT_DEVICE := DDV,DDV_sprout,Daredevil
 # Inherit from common device tree
 include device/nokia/msm8998-common/BoardConfigCommon.mk
 
+# HIDL
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
+
 # Kernel
 TARGET_KERNEL_CONFIG := lineageos_DDV_defconfig
 

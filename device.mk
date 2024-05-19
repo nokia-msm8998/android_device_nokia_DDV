@@ -10,6 +10,10 @@ DEVICE_PATH := device/nokia/DDV
 TARGET_NOKIA_PLATFORM := sdm660
 $(call inherit-product, device/nokia/msm8998-common/msm8998-common.mk)
 
+# Keymaster
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@4.1.vendor
+
 # NFC
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf
@@ -25,6 +29,8 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Wi-Fi
 PRODUCT_PACKAGES += \
+    libkeystore-engine-wifi-hidl \
+    libkeystore-wifi-hidl \
     WifiOverlayDDV
 
 # Inherit device specific vendor makefiles
