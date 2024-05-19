@@ -10,6 +10,10 @@ DEVICE_PATH := device/nokia/DDV
 TARGET_NOKIA_PLATFORM := sdm660
 $(call inherit-product, device/nokia/msm8998-common/msm8998-common.mk)
 
+# NFC
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf
+
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
     $(DEVICE_PATH)/overlay \

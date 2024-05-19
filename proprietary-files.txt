@@ -865,6 +865,11 @@ vendor/lib/libpn553_fw.so
 vendor/etc/sec_s3nrn82_rfreg.bin
 vendor/firmware/sec_s3nrn82_firmware.bin
 
+# NFC (Samsung)
+vendor/etc/libnfc-sec-vendor.conf
+vendor/lib/nfc_nci_sec.so
+vendor/lib64/nfc_nci_sec.so
+
 # Pasrmanager
 vendor/lib/vendor.qti.memory.pasrmanager@1.0.so
 vendor/lib/vendor.qti.memory.pasrmanager@1.1.so
