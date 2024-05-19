@@ -12,3 +12,6 @@ TARGET_KERNEL_CONFIG := lineageos_DDV_defconfig
 
 # Props
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
+
+# Inherit the proprietary files
+include vendor/nokia/DDV/BoardConfigVendor.mk
