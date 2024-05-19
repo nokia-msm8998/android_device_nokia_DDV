@@ -7,6 +7,12 @@
 # Assert
 TARGET_OTA_ASSERT_DEVICE := DDV,DDV_sprout,Daredevil
 
+# QCOM
+TARGET_BOARD_PLATFORM := sdm660
+
+# Bootloader
+TARGET_BOOTLOADER_BOARD_NAME := sdm660
+
 # Inherit from common device tree
 include device/nokia/msm8998-common/BoardConfigCommon.mk
 
