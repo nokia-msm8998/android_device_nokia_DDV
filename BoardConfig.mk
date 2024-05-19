@@ -4,6 +4,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# Assert
+TARGET_OTA_ASSERT_DEVICE := DDV,DDV_sprout,Daredevil
+
 # Inherit from common device tree
 include device/nokia/msm8998-common/BoardConfigCommon.mk
 
