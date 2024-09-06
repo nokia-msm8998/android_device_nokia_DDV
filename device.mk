@@ -15,6 +15,9 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.1.vendor
 
 # NFC
+PRODUCT_PACKAGES += \
+    android.hardware.nfc@1.2-service.samsung
+
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf
 
@@ -25,7 +28,8 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
-    $(DEVICE_PATH)
+    $(DEVICE_PATH) \
+    hardware/samsung
 
 # Wi-Fi
 PRODUCT_PACKAGES += \
