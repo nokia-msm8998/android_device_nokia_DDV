@@ -1,2 +1,5 @@
 # Bluetooth
 bluetooth.device.default_name=Nokia 7.2
+
+# SOC properties
+ro.soc.model=SDM660
