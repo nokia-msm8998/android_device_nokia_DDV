@@ -26,5 +26,10 @@ TARGET_KERNEL_CONFIG := lineageos_DDV_defconfig
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
+# Partitions
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2684354560
+BOARD_VENDORIMAGE_PARTITION_SIZE := 1073741824
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+
 # Inherit the proprietary files
 include vendor/nokia/DDV/BoardConfigVendor.mk
