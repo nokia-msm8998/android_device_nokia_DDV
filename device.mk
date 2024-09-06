@@ -37,5 +37,9 @@ PRODUCT_PACKAGES += \
     libkeystore-wifi-hidl \
     WifiOverlayDDV
 
+# Ramdisk
+PRODUCT_PACKAGES += \
+    init.ddv.target.rc
+
 # Inherit device specific vendor makefiles
 $(call inherit-product, vendor/nokia/DDV/DDV-vendor.mk)

@@ -1,0 +1,90 @@
+# Copyright (c) 2013-2018, 2020 The Linux Foundation. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are
+# met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above
+#       copyright notice, this list of conditions and the following
+#       disclaimer in the documentation and/or other materials provided
+#       with the distribution.
+#     * Neither the name of The Linux Foundation nor the names of its
+#       contributors may be used to endorse or promote products derived
+#       from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+# ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+# BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+# OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+# IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+#
+
+on init
+    # Trustonic TEE
+    start tbaseLoader
+    start keymaster-4-0
+
+on early-fs
+    start vold
+
+    # Create mcRegistry to store failure record
+    mkdir /mnt/vendor/persist/mcRegistry 0775 system system
+    export MC_AUTH_TOKEN_PATH /mnt/vendor/persist/mcRegistry
+    write /proc/bootprof "MOBICORE: Starting mcDriverDaemon"
+    start mobicore
+
+on post-fs-data
+    mkdir /data/vendor/silead 0770 system system
+
+    # Trustonic
+    mkdir /data/vendor/mcRegistry 0775 system system
+
+    # Key provisioning
+    mkdir /data/vendor/key_provisioning 0771 system system
+
+    # PixelWorks
+    chown system system /mnt/pixelworks
+    chmod 0771 /mnt/pixelworks
+
+    # Elabel
+    chown system system /mnt/vendor/elableinfo
+    chmod 0775 /mnt/vendor/elableinfo
+
+on boot
+    # Fingerprint
+    chown system system /dev/fpsdev0
+    chmod 666 dev/fpsdev0
+
+    # PixelWorks
+    mkdir /mnt/pixelworks 0771 system system
+
+    # Elabel
+    mkdir /mnt/vendor/elableinfo 0774 system system
+
+    # Sensors
+    chown system system /sys/class/ant_class
+    chown system system /sys/class/ant_class/ant_state
+    chown system system /sys/class/capsense/enable
+
+    # DT2W
+    chown system system /sys/android_touch/wakeup_gesture_enable
+    chown system system /sys/devices/soc/c178000.spi/spi_master/spi4/spi4.0/fts_gesture_mode
+
+service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry
+    user system
+    group system
+    class core
+    priority -20
+
+service tbaseLoader /vendor/bin/tbaseLoader tbase
+    user system
+    group system
+    oneshot
