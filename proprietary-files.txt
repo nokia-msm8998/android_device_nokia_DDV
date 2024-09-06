@@ -864,9 +864,6 @@ vendor/lib64/libkeymasterprovision.so
 vendor/lib64/libkeymasterutils.so
 vendor/lib64/libqtikeymaster4.so
 
-# NFC (NXP - Firmware)
-vendor/lib/libpn553_fw.so
-
 # NFC (Samsung - Firmware)
 vendor/etc/sec_s3nrn82_rfreg.bin
 vendor/firmware/sec_s3nrn82_firmware.bin
