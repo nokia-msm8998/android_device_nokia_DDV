@@ -817,7 +817,6 @@ vendor/firmware/sw_fp.mdt
 # Gatekeeper
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
 vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
-vendor/lib/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 
 # Graphics (firmware)
@@ -830,8 +829,6 @@ vendor/firmware/a530_pfp.fw
 vendor/firmware/a530_pm4.fw
 
 # Iris
-vendor/lib/libirisService.so
-vendor/lib/libiris_ioctl_wrapper.so
 vendor/lib64/libirisService.so
 vendor/lib64/libiris_ioctl_wrapper.so
 
@@ -855,10 +852,6 @@ vendor/firmware/iris3_inParm8.txt
 # Keymaster
 vendor/bin/hw/android.hardware.keymaster@4.0-service-qti
 vendor/etc/init/android.hardware.keymaster@4.0-service-qti.rc
-vendor/lib/libkeymasterdeviceutils.so
-vendor/lib/libkeymasterprovision.so
-vendor/lib/libkeymasterutils.so
-vendor/lib/libqtikeymaster4.so
 vendor/lib64/libkeymasterdeviceutils.so
 vendor/lib64/libkeymasterprovision.so
 vendor/lib64/libkeymasterutils.so
@@ -872,14 +865,6 @@ vendor/firmware/sec_s3nrn82_firmware.bin
 vendor/etc/libnfc-sec-vendor.conf
 vendor/lib/nfc_nci_sec.so
 vendor/lib64/nfc_nci_sec.so
-
-# Pasrmanager
-vendor/lib/vendor.qti.memory.pasrmanager@1.0.so
-vendor/lib/vendor.qti.memory.pasrmanager@1.1.so
-vendor/lib/vendor.qti.power.pasrmanager@1.0.so
-vendor/lib64/vendor.qti.memory.pasrmanager@1.0.so
-vendor/lib64/vendor.qti.memory.pasrmanager@1.1.so
-vendor/lib64/vendor.qti.power.pasrmanager@1.0.so
 
 # Proximity sensor (Firmware)
 vendor/firmware/AbovCapSense.BIN
@@ -903,13 +888,9 @@ vendor/etc/sensors/sensor_def_qcomdev.conf
 
 # Soter
 -system_ext/framework/vendor.qti.hardware.soter-V1.0-java.jar
-system_ext/lib/vendor.qti.hardware.soter@1.0.so
-system_ext/lib64/vendor.qti.hardware.soter@1.0.so
 vendor/bin/hw/vendor.qti.hardware.soter@1.0-service
 vendor/bin/vendor.qti.hardware.soter@1.0-provision
 vendor/etc/init/vendor.qti.hardware.soter@1.0-service.rc
-vendor/lib/hw/vendor.qti.hardware.soter@1.0-impl.so
-vendor/lib/vendor.qti.hardware.soter@1.0.so
 vendor/lib64/hw/vendor.qti.hardware.soter@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.soter@1.0.so
 
@@ -937,10 +918,3 @@ vendor/etc/public.libraries-trustonic.txt
 vendor/lib64/vendor.trustonic.tee.tui@1.0.so
 vendor/lib64/vendor.trustonic.tee@1.0.so
 vendor/lib64/vendor.trustonic.teeregistry@1.0.so
-
-# Voiceprint
--system_ext/framework/vendor.qti.voiceprint-V1.0-java.jar
-system_ext/lib/vendor.qti.voiceprint@1.0.so
-system_ext/lib64/vendor.qti.voiceprint@1.0.so
-vendor/lib/vendor.qti.voiceprint@1.0.so
-vendor/lib64/vendor.qti.voiceprint@1.0.so
