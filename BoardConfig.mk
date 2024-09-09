@@ -16,6 +16,9 @@ TARGET_BOARD_PLATFORM := sdm660
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := sdm660
 
+# Verified Boot
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
+
 # Inherit from common device tree
 include device/nokia/msm8998-common/BoardConfigCommon.mk
 
