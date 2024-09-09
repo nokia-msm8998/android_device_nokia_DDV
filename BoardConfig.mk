@@ -16,6 +16,11 @@ TARGET_BOOTLOADER_BOARD_NAME := sdm660
 # Inherit from common device tree
 include device/nokia/msm8998-common/BoardConfigCommon.mk
 
+# A/B
+AB_OTA_PARTITIONS += \
+    dtbo \
+    vbmeta
+
 # HIDL
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
