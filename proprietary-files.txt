@@ -774,7 +774,7 @@ vendor/lib/libois_bu63165.so
 vendor/lib/libois_lc898122.so
 
 # Display
-etc/firmware/hx_criteria.csv:vendor/etc/firmware/hx_criteria.csv
+system/etc/firmware/hx_criteria.csv:vendor/etc/firmware/hx_criteria.csv
 vendor/firmware/Himax_firmware.bin
 
 # Fingerprint
