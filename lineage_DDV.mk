@@ -26,6 +26,6 @@ PRODUCT_MODEL := Nokia 7.2
 PRODUCT_GMS_CLIENTID_BASE := android-hmd-rev2
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    DeviceName=Daredevil_00WW \
+    DeviceName=DDV \
     BuildDesc="m690-user 11 RKQ1.210607.001 00WW_3_690_SP07 release-keys" \
     BuildFingerprint=Nokia/Daredevil_00WW/DDV_sprout:11/RKQ1.210607.001/00WW_3_69G:user/release-keys
