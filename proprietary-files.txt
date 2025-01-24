@@ -887,7 +887,7 @@ vendor/lib64/sensor_calibrate.so
 vendor/etc/sensors/sensor_def_qcomdev.conf
 
 # Soter
--system_ext/framework/vendor.qti.hardware.soter-V1.0-java.jar
+system_ext/framework/vendor.qti.hardware.soter-V1.0-java.jar
 vendor/bin/hw/vendor.qti.hardware.soter@1.0-service
 vendor/bin/vendor.qti.hardware.soter@1.0-provision
 vendor/etc/init/vendor.qti.hardware.soter@1.0-service.rc
