@@ -1,6 +1,10 @@
 ## All proprietary files from this list, unless pinned and noted otherwise,
 ## are from DDV_sprout (00WW_3_690_SP07).
 
+# Current blobs with ELF checks disabled:
+# libvidhance depends on intrinsic symbols which are difficult to shim
+# like __aeabi_d2lz, __aeabi_ldivmod, __aeabi_ul2d, etc...
+
 # ADSP modules
 vendor/lib/rfsa/adsp/capi_v2_aptX_Classic.so
 vendor/lib/rfsa/adsp/capi_v2_aptX_HD.so
@@ -52,6 +56,7 @@ vendor/bin/mm-qomx-ienc-test
 vendor/lib/hw/camera.sdm660.so
 vendor/lib/libcapiv2svacnn.so
 vendor/lib/libcapiv2vop.so
+vendor/lib/libcvimage_api.so
 vendor/lib/libdepthmapwrapper.so
 vendor/lib/libflash_pmic.so
 vendor/lib/libhal_dbg.so
@@ -71,15 +76,14 @@ vendor/lib/libqomx_jpegenc.so
 vendor/lib/libqomx_jpegenc_pipe.so
 vendor/lib/libremosaic_daemon.so
 vendor/lib/libseemore.so
-vendor/lib/libvideoutils.so
-vendor/lib/libvidhance.so
+vendor/lib/libvidhance.so;DISABLE_CHECKELF
+vendor/lib/libwa_widelens_undistort.so
 vendor/lib64/libcapiv2svacnn.so
 vendor/lib64/libcapiv2vop.so
 vendor/lib64/libmpbase.so
 vendor/lib64/libremosaiclib.so
 vendor/lib64/libremosaic_daemon.so
 vendor/lib64/libseemore.so
-vendor/lib64/libvideoutils.so
 vendor/lib/libmmcamera2_c2d_module.so
 vendor/lib/libmmcamera2_cpp_module.so
 vendor/lib/libmmcamera2_frame_algorithm.so
@@ -778,20 +782,12 @@ system/etc/firmware/hx_criteria.csv:vendor/etc/firmware/hx_criteria.csv
 vendor/firmware/Himax_firmware.bin
 
 # Fingerprint
-vendor/bin/fingerprint
-vendor/bin/qfp-daemon
 vendor/bin/hw/vendor.sw.swfingerprint@1.0-service
-vendor/etc/init/init_qfp_daemon.rc
-vendor/etc/init/vendor.fingerprint.rc
 vendor/etc/init/vendor.sw.swfingerprint@1.0-service.rc
-vendor/etc/permissions/qti_fingerprint_interface.xml
-vendor/lib/hw/swfingerprint.default.so
-vendor/lib/hw/vendor.sw.swfingerprint@1.0-impl.so
 vendor/lib/vendor.sw.swfingerprint@1.0.so
-vendor/lib/vendor.qti.hardware.fingerprint@1.0.so
-vendor/lib64/hw/cdfinger.fingerprint.default.so
-vendor/lib64/hw/swfingerprint.default.so
-vendor/lib64/libqfp-service.so
+vendor/lib/hw/vendor.sw.swfingerprint@1.0-impl.so
+vendor/lib64/hw/cdfinger.fingerprint.default.so:vendor/lib64/hw/cdfinger.fingerprint.sdm660.so;FIX_SONAME
+vendor/lib64/hw/swfingerprint.default.so:vendor/lib64/hw/swfingerprint.sdm660.so;FIX_SONAME
 vendor/lib64/vendor.sw.swfingerprint@1.0.so
 
 # Fingerprint (Firmware)
@@ -831,6 +827,9 @@ vendor/firmware/a530_pm4.fw
 # Iris
 vendor/lib64/libirisService.so
 vendor/lib64/libiris_ioctl_wrapper.so
+vendor/lib64/libpwirispq.so
+vendor/lib64/libpwirisPCS.so
+vendor/lib64/vendor.pixelworks.hardware.display@1.0.so
 
 # Iris3 (Firmware)
 vendor/firmware/File_iris3_inParm11.txt
@@ -856,6 +855,7 @@ vendor/lib64/libkeymasterdeviceutils.so
 vendor/lib64/libkeymasterprovision.so
 vendor/lib64/libkeymasterutils.so
 vendor/lib64/libqtikeymaster4.so
+vendor/lib64/libqcbor.so
 
 # NFC (Samsung - Firmware)
 vendor/etc/sec_s3nrn82_rfreg.bin

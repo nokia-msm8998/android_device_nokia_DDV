@@ -14,7 +14,7 @@ extract_utils.tools.DEFAULT_PATCHELF_VERSION = '0_9'
 
 namespace_imports = [
     'device/nokia/DDV',
-    'hardware/qcom-caf/sdm660',
+    'hardware/qcom-caf/msm8998',
     'vendor/nokia/msm8998-common',
 ]
 
