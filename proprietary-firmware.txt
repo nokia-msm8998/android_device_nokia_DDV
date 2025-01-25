@@ -1,0 +1,15 @@
+## All proprietary firmware from this list, unless pinned and noted otherwise,
+## are from DDV_sprout (00WW_3_69G_SP07).
+
+abl.img;AB
+bluetooth.img;AB
+cmnlib.img;AB
+cmnlib64.img;AB
+devcfg.img;AB
+hyp.img;AB
+keymaster.img;AB
+modem.img;AB
+pmic.img;AB
+rpm.img;AB
+tz.img;AB
+xbl.img;AB
