@@ -27,6 +27,9 @@ blob_fixups: blob_fixups_user_type = {
     # Resolve missing symbol "_ZN7android8hardware7details17gBnConstructorMapE"
     ('vendor/lib/vendor.sw.swfingerprint@1.0.so', 'vendor/lib64/vendor.sw.swfingerprint@1.0.so'): blob_fixup()
 	.replace_needed('libhidlbase.so', 'libhidlbase-v32.so'),
+    # Resolve missing symbol "__android_log_print"
+    'vendor/lib64/hw/cdfinger.fingerprint.sdm660.so': blob_fixup()
+	.add_needed('liblog.so'),
     ('vendor/lib/libmmcamera_faceproc.so', 'vendor/lib/libmmcamera_faceproc2.so'): blob_fixup()
         .clear_symbol_version('__aeabi_memcpy')
         .clear_symbol_version('__aeabi_memset')
