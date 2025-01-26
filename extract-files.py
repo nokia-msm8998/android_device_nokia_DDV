@@ -4,6 +4,11 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+from extract_utils.fixups_blob import (
+    blob_fixup,
+    blob_fixups_user_type,
+)
+
 from extract_utils.main import (
     ExtractUtils,
     ExtractUtilsModule,
@@ -18,9 +23,17 @@ namespace_imports = [
     'vendor/nokia/msm8998-common',
 ]
 
+blob_fixups: blob_fixups_user_type = {
+    # Resolve missing symbol "_ZN7android8hardware7details17gBnConstructorMapE"
+    ('vendor/lib/vendor.sw.swfingerprint@1.0.so', 'vendor/lib64/vendor.sw.swfingerprint@1.0.so'): blob_fixup()
+	.replace_needed('libhidlbase.so', 'libhidlbase-v32.so'),
+}  # fmt: skip
+
+
 module = ExtractUtilsModule(
     'DDV',
     'nokia',
+    blob_fixups=blob_fixups,
     namespace_imports=namespace_imports,
     add_firmware_proprietary_file=True,
 )
