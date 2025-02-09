@@ -8,16 +8,13 @@
 TARGET_OTA_ASSERT_DEVICE := DDV,DDV_sprout,Daredevil
 
 # A/B
-AB_OTA_PARTITIONS += dtbo vbmeta
+AB_OTA_PARTITIONS += dtbo
 
 # QCOM
 TARGET_BOARD_PLATFORM := sdm660
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := sdm660
-
-# Verified Boot
-BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
 
 # Kernel
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
