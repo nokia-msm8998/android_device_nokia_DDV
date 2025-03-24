@@ -14,7 +14,7 @@
 # limitations under the License.
 
 # Vendor blobs
-$(call inherit-product, vendor/nokia/PL2/PL2-vendor.mk)
+$(call inherit-product, vendor/nokia/B2N/B2N-vendor.mk)
 
 # Set Shipping API level
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o.mk)
@@ -39,19 +39,7 @@ PRODUCT_GMS_CLIENTID_BASE := android-hmd
 
 # Init
 PRODUCT_PACKAGES += \
-    init.PL2.target.rc
-
-# NFC
-PRODUCT_PACKAGES += \
-    android.hardware.nfc@1.2-service \
-    android.hardware.nfc@1.2-service.samsung \
-    com.android.nfc_extras \
-    Tag
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
-    $(LOCAL_PATH)/configs/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf \
-    $(LOCAL_PATH)/configs/nfc/libnfc-sec-vendor.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-sec-vendor.conf
+    init.B2N.target.rc
 
 # Permissions
 PRODUCT_COPY_FILES += \

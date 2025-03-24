@@ -2,14 +2,14 @@
 persist.audio.fluence.voicecomm=true
 
 # Bluetooth
-bluetooth.device.default_name=Nokia 6.1
+bluetooth.device.default_name=Nokia 7 plus
 
 # Camera
-persist.camera.ffcolor=true
-persist.capture.burst.exposures=0,-9,9
+persist.vendor.camera.isp.turbo=1
+persist.camera.ffcolor=ffc891
 
 # Fingerprint
-ro.hardware.fingerprint=elan
+ro.hardware.fingerprint=gxfp3208_b2n
 
 # Radio
 ro.rf.power.reduction.for.mcc=1

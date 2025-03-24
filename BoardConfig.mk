@@ -14,21 +14,21 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/nokia/PL2
+DEVICE_PATH := device/nokia/B2N
 
 # Inherit from nokia sdm660-common
 -include device/nokia/sdm660-common/BoardConfigCommon.mk
 
 # Architecture
-TARGET_CPU_VARIANT_RUNTIME := cortex-a53
-TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a53
+TARGET_CPU_VARIANT_RUNTIME := cortex-a73
+TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a73
 
 # Assertions
 TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
-TARGET_OTA_ASSERT_DEVICE := PL2,PL2_sprout,Plate2
+TARGET_OTA_ASSERT_DEVICE := B2N,B2N_sprout,Onyx
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := sdm630
+TARGET_BOOTLOADER_BOARD_NAME := sdm660
 
 # Display
 TARGET_SCREEN_DENSITY := 420
@@ -42,9 +42,5 @@ BOARD_FLASH_BLOCK_SIZE := 262144
 # Properties
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
-# SELinux
-SELINUX_IGNORE_NEVERALLOWS := true
-BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
-
 # Inherit from the proprietary version
-include vendor/nokia/PL2/BoardConfigVendor.mk
+include vendor/nokia/B2N/BoardConfigVendor.mk

@@ -28,7 +28,7 @@ namespace_imports = [
 ]
 
 module = ExtractUtilsModule(
-    'PL2',
+    'B2N',
     'nokia',
     blob_fixups=blob_fixups,
     lib_fixups=lib_fixups,
