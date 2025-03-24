@@ -61,7 +61,6 @@ vendor/lib/libdepthmapwrapper.so
 vendor/lib/libfih_camera_effect.so
 vendor/lib/libflash_dummy_flash.so
 vendor/lib/libflash_pmic.so
-vendor/lib/libgui_vendor.so
 vendor/lib/libhal_dbg.so
 vendor/lib/libimage_matting.so
 vendor/lib/libjpegdhw.so

@@ -32,8 +32,6 @@ blob_fixups: blob_fixups_user_type = {
 	.remove_needed('libMegviiFacepp.so')
 	.remove_needed('libmegface-new.so')
 	.add_needed('libshim_megvii.so'),
-    'vendor/lib/libgui_vendor.so': blob_fixup()
-	.add_needed('libgui_shim_vendor.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
