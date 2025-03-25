@@ -6,7 +6,6 @@
 
 # Audio (Configs)
 vendor/etc/audio_platform_info_b2n.xml
-vendor/etc/mixer_paths_b2n_cn.xml
 vendor/etc/mixer_paths_b2n.xml
 
 # ACDB loader
