@@ -32,6 +32,10 @@ blob_fixups: blob_fixups_user_type = {
 	.remove_needed('libMegviiFacepp.so')
 	.remove_needed('libmegface-new.so')
 	.add_needed('libshim_megvii.so'),
+    ('vendor/lib/libmmcamera_faceproc.so', 'vendor/lib/libmmcamera_faceproc2.so', 'vendor/lib64/libmmcamera_faceproc.so', 'vendor/lib64/libmmcamera_faceproc2.so'): blob_fixup()
+        .clear_symbol_version('__aeabi_memcpy')
+        .clear_symbol_version('__aeabi_memset')
+        .clear_symbol_version('__gnu_Unwind_Find_exidx'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
