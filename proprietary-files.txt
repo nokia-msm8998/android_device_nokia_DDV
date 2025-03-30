@@ -387,3 +387,10 @@ vendor/etc/sensors/sensor_def_qcomdev_b2.conf
 
 # Thermal
 vendor/etc/thermal-engine.conf
+
+# WLAN
+vendor/bin/cnss-daemon
+vendor/etc/wifi/aoa_cldb_falcon.bin
+vendor/etc/wifi/aoa_cldb_swl14.bin
+vendor/etc/wifi/bdf/bdwlan_B2N_cal.bin
+vendor/etc/wifi/bdf/bdwlan_def.bin
