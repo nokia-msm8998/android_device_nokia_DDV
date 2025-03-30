@@ -24,6 +24,7 @@ extract_utils.tools.DEFAULT_PATCHELF_VERSION = '0_9'
 namespace_imports = [
     'device/nokia/sdm660-common',
     'hardware/qcom-caf/msm8998',
+    'hardware/qcom-caf/wlan',
     'vendor/nokia/sdm660-common',
 ]
 
