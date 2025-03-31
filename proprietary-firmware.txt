@@ -17,7 +17,6 @@ modem.img;AB
 nvdef.img;AB
 pmic.img;AB
 rpm.img;AB
-splash.img;AB
 systeminfo.img;AB
 tz.img;AB
 xbl.img;AB
