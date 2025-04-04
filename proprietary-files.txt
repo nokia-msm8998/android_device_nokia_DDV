@@ -388,6 +388,11 @@ vendor/etc/sensors/sensor_def_qcomdev_b2.conf
 # Thermal
 vendor/etc/thermal-engine.conf
 
+# Touchscreen firmware
+vendor/firmware/TP_Firmware_FT8716_B2N.bin
+vendor/firmware/novatek_h_glass_ts_fw.bin
+vendor/firmware/novatek_ts_fw.bin
+
 # WLAN
 vendor/bin/cnss-daemon
 vendor/etc/wifi/aoa_cldb_falcon.bin
