@@ -16,6 +16,9 @@
 
 DEVICE_PATH := device/nokia/B2N
 
+# Audio
+BOARD_USES_ALSA_AUDIO := true
+
 # Inherit from nokia sdm660-common
 -include device/nokia/sdm660-common/BoardConfigCommon.mk
 
