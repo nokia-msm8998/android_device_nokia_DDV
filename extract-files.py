@@ -1,6 +1,6 @@
 #!/usr/bin/env -S PYTHONPATH=../../../tools/extract-utils python3
 #
-# SPDX-FileCopyrightText: 2024 The LineageOS Project
+# SPDX-FileCopyrightText: 2026 The LineageOS Project
 # SPDX-License-Identifier: Apache-2.0
 #
 
@@ -20,27 +20,20 @@ from extract_utils.main import (
 
 namespace_imports = [
     'device/nokia/sdm660-common',
-    'hardware/qcom-caf/msm8998',
     'hardware/qcom-caf/wlan',
+    'hardware/qcom-caf/msm8998',
     'vendor/nokia/sdm660-common',
 ]
 
 blob_fixups: blob_fixups_user_type = {
-    'vendor/lib/hw/camera.sdm660.so': blob_fixup()
-        .remove_needed('libMegviiFacepp.so')
-        .remove_needed('libmegface-new.so')
-        .add_needed('libshim_megvii.so')
-        .add_needed('libui_shim.so'),
     ('vendor/lib/libmmcamera_faceproc.so', 'vendor/lib/libmmcamera_faceproc2.so'): blob_fixup()
         .clear_symbol_version('__aeabi_memcpy')
         .clear_symbol_version('__aeabi_memset')
         .clear_symbol_version('__gnu_Unwind_Find_exidx'),
-    ('vendor/lib64/libvendor.goodix.hardware.fingerprint@1.0.so', 'vendor/lib64/libvendor.goodix.hardware.fingerprintextension@1.0.so'): blob_fixup()
-        .replace_needed('libhidlbase.so', 'libhidlbase-v32.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
-    'B2N',
+    'DDV',
     'nokia',
     blob_fixups=blob_fixups,
     lib_fixups=lib_fixups,

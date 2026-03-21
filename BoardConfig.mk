@@ -1,26 +1,17 @@
 #
-# Copyright (C) 2019 The LineageOS Project
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# SPDX-FileCopyrightText: 2026 The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/nokia/B2N
-
-# Audio
-BOARD_USES_ALSA_AUDIO := true
+DEVICE_PATH := device/nokia/DDV
 
 # Inherit from nokia sdm660-common
--include device/nokia/sdm660-common/BoardConfigCommon.mk
+include device/nokia/sdm660-common/BoardConfigCommon.mk
+
+# A/B
+AB_OTA_PARTITIONS += \
+    dtbo \
+    vbmeta
 
 # Architecture
 TARGET_CPU_VARIANT_RUNTIME := cortex-a73
@@ -28,21 +19,27 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a73
 
 # Assertions
 TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
+TARGET_OTA_ASSERT_DEVICE := DDV,DDV_sprout
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := sdm660
 
 # Display
-TARGET_SCREEN_DENSITY := 420
+TARGET_SCREEN_DENSITY := 400
+
+# HIDL
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += $(DEVICE_PATH)/framework_compatibility_matrix.xml
 
 # Kernel
-TARGET_KERNEL_CONFIG += vendor/nokia/B2N.config
+TARGET_KERNEL_CONFIG += vendor/nokia/DDV.config
 
 # Partitions
-BOARD_VENDORIMAGE_PARTITION_SIZE := 1073741824
+BOARD_DTBOIMG_PARTITION_SIZE := 10485760
+BOARD_VENDORIMAGE_PARTITION_SIZE := 805306368
 
 # Properties
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 # Inherit from the proprietary version
-include vendor/nokia/B2N/BoardConfigVendor.mk
+include vendor/nokia/DDV/BoardConfigVendor.mk

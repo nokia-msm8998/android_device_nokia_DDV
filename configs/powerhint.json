@@ -156,7 +156,7 @@
     },
     {
       "Name": "DoubleTapToWakeEnable",
-      "Path": "/proc/AllHWList/tp_double_tap",
+      "Path": "/sys/android_touch/wakeup_gesture_enable",
       "Values": [
           "0",
           "1"

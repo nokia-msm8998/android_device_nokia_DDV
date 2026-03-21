@@ -1,27 +1,17 @@
 #
-# Copyright (C) 2020 The LineageOS Project
+# SPDX-FileCopyrightText: 2026 The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
 
 # Vendor blobs
-$(call inherit-product, vendor/nokia/B2N/B2N-vendor.mk)
+$(call inherit-product, vendor/nokia/DDV/DDV-vendor.mk)
 
 # Audio
 PRODUCT_PACKAGES += \
     audio.primary.sdm660
 
 # Set Shipping API level
-PRODUCT_SHIPPING_API_LEVEL := 27
+PRODUCT_SHIPPING_API_LEVEL := 28
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
@@ -38,22 +28,24 @@ TARGET_SCREEN_WIDTH := 1080
 # Dalvik
 $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
 
+# FM
+PRODUCT_PACKAGES += \
+    FM2
+
+$(call soong_config_set_bool,libfmjni,no_fm_firmware,true)
+
 # GMS
 PRODUCT_GMS_CLIENTID_BASE := android-hmd
 
 # Init
 PRODUCT_PACKAGES += \
-    init.B2N.target.rc
+    init.DDV.target.rc
 
 # NFC
 PRODUCT_PACKAGES += \
-    android.hardware.nfc@1.2-service \
+    android.hardware.nfc@1.2-service.samsung \
     com.android.nfc_extras \
     Tag
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
-    $(LOCAL_PATH)/configs/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -63,7 +55,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.xml \
     frameworks/native/data/etc/com.android.nfc_extras.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.android.nfc_extras.xml
 
-# Power
+# Powerhint
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 

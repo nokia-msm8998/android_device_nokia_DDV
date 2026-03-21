@@ -1,1 +1,1 @@
-require board=sdm660|B2N
+require board=sdm660

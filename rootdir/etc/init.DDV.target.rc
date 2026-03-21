@@ -1,0 +1,69 @@
+on init
+    start tbaseLoader
+
+on boot
+    # DT2W
+    chown system system /sys/android_touch/wakeup_gesture_enable
+    chmod 660 /sys/android_touch/wakeup_gesture_enable
+    chown system system /sys/devices/soc/c178000.spi/spi_master/spi4/spi4.0/fts_gesture_mode
+
+    # Elabel
+    mkdir /mnt/vendor/elableinfo 0774 system system
+
+    # Fingerprint
+    chown system system /dev/fpsdev0
+    chmod 644 dev/fpsdev0
+
+    # PixelWorks
+    mkdir /mnt/pixelworks 0771 system system
+
+    # Sensors
+    chown system system /sys/class/ant_class
+    chown system system /sys/class/ant_class/ant_state
+    chown system system /sys/class/capsense/enable
+
+on post-fs
+    # Create mcRegistry to store failure record
+    mkdir /mnt/vendor/persist/mcRegistry 0775 system system
+    export MC_AUTH_TOKEN_PATH /mnt/vendor/persist/mcRegistry
+
+    start mobicore
+
+on post-fs-data
+    # Elabel
+    chown system system /mnt/vendor/elableinfo
+    chmod 0775 /mnt/vendor/elableinfo
+
+    # NFC
+    chown nfc nfc /dev/sec-nfc
+    chmod 0770 /dev/sec-nfc
+    mkdir /data/vendor/nfc 0770 nfc nfc
+    mkdir /data/vendor/nfc/param 0770 nfc nfc
+
+    # PixelWorks
+    chown system system /mnt/pixelworks
+    chmod 0771 /mnt/pixelworks
+
+    # Trustonic
+    chmod 0775 /data/vendor/mcRegistry
+    mkdir /data/vendor/key_provisioning 0771 system system
+
+service mobicore /vendor/bin/mcDriverDaemon --P1 /mnt/vendor/persist/mcRegistry
+    user system
+    group system
+    class core
+    priority -20
+
+service tbaseLoader /vendor/bin/tbaseLoader tbase
+    user system
+    group system
+    oneshot
+
+on property:persist.vendor.capsensor.open=1
+    write /sys/class/capsense/capenable 1
+
+on property:ro.boot.simslot=1
+    setprop persist.radio.multisim.config ss
+
+on property:ro.boot.simslot=2
+    setprop persist.radio.multisim.config dsds
