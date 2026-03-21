@@ -44,6 +44,7 @@ TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
 
 # Inherit from the proprietary version
 include vendor/nokia/DDV/BoardConfigVendor.mk
