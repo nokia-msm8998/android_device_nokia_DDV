@@ -1,0 +1,10 @@
+# Fingerprint
+vendor.sw.swfingerprint::ISwfingerprint           u:object_r:hal_swfingerprint_hwservice:s0
+
+# PixelWorks
+vendor.pixelworks.hardware.display::IIris         u:object_r:hal_pixelworks_hwservice:s0
+
+# Trustonic
+vendor.trustonic.tee::ITee                        u:object_r:hal_trustonic_hwservice:s0
+vendor.trustonic.tee.tui::ITui                    u:object_r:hal_trustonic_hwservice:s0
+vendor.trustonic.teeregistry::ITeeRegistry        u:object_r:hal_trustonic_hwservice:s0
