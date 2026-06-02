@@ -42,4 +42,7 @@
         <item>20</item>
         <item>30</item>
     </integer-array>
+
+    <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
+    <bool name="config_intrusiveNotificationLed">true</bool>
 </resources>
