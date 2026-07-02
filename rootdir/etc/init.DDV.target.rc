@@ -12,7 +12,8 @@ on boot
 
     # Fingerprint
     chown system system /dev/fpsdev0
-    chmod 644 dev/fpsdev0
+    chmod 0660 /dev/fpsdev0
+    restorecon /dev/fpsdev0
 
     # PixelWorks
     mkdir /mnt/pixelworks 0771 system system
@@ -37,6 +38,7 @@ on post-fs-data
     # NFC
     chown nfc nfc /dev/sec-nfc
     chmod 0770 /dev/sec-nfc
+    restorecon /dev/sec-nfc
     mkdir /data/vendor/nfc 0770 nfc nfc
     mkdir /data/vendor/nfc/param 0770 nfc nfc
 

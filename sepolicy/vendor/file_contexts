@@ -5,3 +5,6 @@
 
 # PixelWorks
 /(vendor|system/vendor)/bin/irisConfig                                                          u:object_r:hal_pixelworks_default_exec:s0
+
+# Fingerprint
+/dev/fpsdev0                                                       u:object_r:sysfs_fingerprint:s0
