@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_B2N.mk
+    $(LOCAL_DIR)/lineage_DDV.mk

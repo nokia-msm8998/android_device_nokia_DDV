@@ -14,12 +14,18 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/nokia/B2N
+DEVICE_PATH := device/nokia/DDV
+
+# A/B
+AB_OTA_PARTITIONS += \
+    dtbo \
+    vbmeta
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
 
 # Partitions
+BOARD_DTBOIMG_PARTITION_SIZE := 10485760
 BOARD_SUPER_PARTITION_SYSTEM_DEVICE_SIZE := 3221225472
 BOARD_SUPER_PARTITION_VENDOR_DEVICE_SIZE := 1073741824
 
@@ -43,10 +49,19 @@ TARGET_SCREEN_DENSITY := 420
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
 # Kernel
-TARGET_KERNEL_CONFIG += vendor/nokia/B2N.config
+BOARD_BOOT_HEADER_VERSION := 1
+BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
+TARGET_KERNEL_CONFIG += vendor/nokia/DDV.config
 
 # Properties
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
+# SELinux
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+
+# Verified Boot
+BOARD_AVB_ENABLE := true
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
+
 # Inherit from the proprietary version
-include vendor/nokia/B2N/BoardConfigVendor.mk
+include vendor/nokia/DDV/BoardConfigVendor.mk

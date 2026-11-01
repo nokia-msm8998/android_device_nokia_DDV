@@ -2,7 +2,7 @@
 persist.audio.fluence.voicecomm=true
 
 # Bluetooth
-bluetooth.device.default_name=Nokia 7 plus
+bluetooth.device.default_name=Nokia 7.2
 
 # Camera
 persist.vendor.camera.isp.turbo=1

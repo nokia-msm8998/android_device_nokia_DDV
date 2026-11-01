@@ -27,16 +27,19 @@ namespace_imports = [
 ]
 
 blob_fixups: blob_fixups_user_type = {
+    'vendor/etc/libnfc-nci.conf': blob_fixup()
+        .regex_replace('NFA_STORAGE="/data/nfc"', 'NFA_STORAGE="/data/vendor/nfc"'),
     ('vendor/lib/libmmcamera_faceproc.so', 'vendor/lib/libmmcamera_faceproc2.so'): blob_fixup()
         .clear_symbol_version('__aeabi_memcpy')
         .clear_symbol_version('__aeabi_memset')
         .clear_symbol_version('__gnu_Unwind_Find_exidx'),
-    ('vendor/lib64/libvendor.goodix.hardware.fingerprint@1.0.so', 'vendor/lib64/libvendor.goodix.hardware.fingerprintextension@1.0.so'): blob_fixup()
-        .replace_needed('libhidlbase.so', 'libhidlbase-v32.so'),
+    'vendor/lib64/hw/fingerprint.sdm660.so': blob_fixup()
+        .add_needed('liblog.so')
+        .binary_regex_replace(b'cdfinger.fingerprint\x00', b'fingerprint\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
-    'B2N',
+    'DDV',
     'nokia',
     blob_fixups=blob_fixups,
     lib_fixups=lib_fixups,
